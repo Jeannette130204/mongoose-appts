@@ -1,12 +1,49 @@
+<%- include('../partials/header') %>
 
+<section id="show-page">
+    <div>Location: </div>
+    <div><%= appointment.location %></div><br>
+    <div>Doctor: </div>
+    <div><%= appointment.doctor %></div><br>
+    <div>Date: </div>
+    <div><%= appointment.date %></div><br>
+    <div>Time: </div>
+    <div><%= appointment.time %></div>
+</section>
 
+<br><br>
+<h2>Patient Feedback</h2>
+<form id="feedback-form" method="POST" action="/appointments/<%= appointment._id%>/feedbacks">
+    <label>Feedback:</label><br>
+    <textarea name="content"></textarea><br>
+    <button type="submit">send</button>
+</form>
 
-          <td><%= r.rating %></td>
-          <!-- Add this td -->
-          <td>
-            <% if (user && user._id.equals(r.user)) { %>
-              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-          </td>
+<% if (appointment.feedbacks.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Appointment Feedback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% appointment.feedbacks.forEach(function(f) { %>
+          <tr>
+            <td><%= f.createdAt.toLocaleDateString() %></td>
+            <td><%= f.content %></td>
+            <td><a href="/feedbacks/<%=f._id%>/edit">Edit Feedback</a></td>
+            <td>
+                <form action="/feedbacks/<%= f._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Feedback</h5>
+  <% } %>
+
+<%- include('../partials/footer') %>

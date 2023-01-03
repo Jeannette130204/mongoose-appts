@@ -7,12 +7,21 @@ const Schema = mongoose.Schema
 // userAvatar: String
 // }
 // })
+const feedbackSchema = new Schema({
+    content: String,
+    user: {type:Schema.Types.ObjectId, ref: 'User'},
+    userName: String,
+    userAvatar: String
+}, {
+    timestamps:true
+})
 
 const appointmentSchema = new Schema({
     location: String,
     doctor: String,
     date: Date,
-    time: String
+    time: String,
+    feedbacks: [feedbackSchema]
 },{
     timestamps: true
 });

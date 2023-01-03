@@ -15,7 +15,7 @@ require('./config/passport')
 
 var indexRouter = require('./routes/index');
 var appointmentsRouter = require('./routes/appointments');
-
+var feedbacksRouter = require('./routes/feedbacks')
 var app = express();
 
 // view engine setup
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/appointments', appointmentsRouter);
-
+app.use('/', feedbacksRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
