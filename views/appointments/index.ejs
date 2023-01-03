@@ -11,6 +11,8 @@
                 <th>Time</th>
             </tr>
         </thead>
+        <% if (user) { %>
+
             <tbody>
                 <% appointments.forEach(function(a) { %>
                     <tr>
@@ -37,6 +39,8 @@
                     </tr>
                     <% }); %>
             </tbody><br>
+            <% } %>
+
     </table>
 </body>
 

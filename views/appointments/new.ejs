@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-    
+<% if (user) { %>
+
     <h1>Create Appointment</h1>
     <form id="create-appts-form" action="/appointments" method="POST">
         <!-- action="/appointments" -->
@@ -31,4 +32,6 @@
         </select><br><br>
     <input type="submit" value="add to appts">
     </form>
+    <% } %>
+
 <%- include('../partials/footer') %>
