@@ -12,24 +12,15 @@ const feedbackSchema = new Schema({
 })
 
 const appointmentSchema = new Schema({
-    location: {
-        type: String,
-        required: true
-    },
-    doctor: {
-        type: String
-    },
-    date: {
-        type: Date
-    },
-    time: {
-        type:String,
-    },
-    feedbacks: [feedbackSchema]
-},{
+        location: String,
+        doctor: String,
+        date: Date,
+        time: String,
+        feedbacks: [feedbackSchema]
+    },{
     timestamps: true
 });
 
 module.exports = mongoose.model('Appointment', appointmentSchema)
-module.exports = mongoose.model('Feedback', feedbackSchema)
+// module.exports = mongoose.model('Feedback', feedbackSchema)
 

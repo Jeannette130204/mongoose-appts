@@ -12,9 +12,9 @@ module.exports = {
 
 function create(req, res){
     Appointment.findById(req.params.id, function(err, appointment){
-        req.body.user = req.user._id,
-        req.body.userName = req.user.userName,
-        req.body.userAvatar = req.user.avatar
+        // req.body.user = req.user._id,
+        // req.body.userName = req.user.userName,
+        // req.body.userAvatar = req.user.avatar
 
         appointment.feedbacks.push(req.body)
         appointment.save(function(err){
