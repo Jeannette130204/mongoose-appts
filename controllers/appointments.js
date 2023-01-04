@@ -18,7 +18,7 @@ function show(req, res) {
     })
 }
 function newAppointment(req, res) {
-    res.render('appointments/new', { title: 'All Appointments' })
+    res.render('appointments/new', { title: 'New Appointments' })
 }
 function create(req, res) {
     const appointment = new Appointment(req.body)

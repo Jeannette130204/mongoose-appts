@@ -4,7 +4,7 @@ var passport = require('passport')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'The appointment system' });
+  res.render('../views/index', { title: 'The appointment system' });
 });
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -15,7 +15,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-  successRedirect: '/appointments',//remember to change this
+  successRedirect: '/appointments',
   failureRedirect: '/appointments'
 }
 ))

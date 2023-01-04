@@ -1,4 +1,8 @@
+const { default: mongoose } = require('mongoose')
 const Appointment = require('../models/appointment')
+const Feedback = require('../models/appointment')
+const { Schema } = mongoose
+const ObjectID = mongoose.Types.ObjectId
 module.exports = {
     create,
     delete: deleteFeedback,
@@ -8,9 +12,9 @@ module.exports = {
 
 function create(req, res){
     Appointment.findById(req.params.id, function(err, appointment){
-        // req.body.user = req.user._id,
-        // req.body.userName = req.user.userName,
-        // req.body.userAvatar = req.user.avatar
+        req.body.user = req.user._id,
+        req.body.userName = req.user.userName,
+        req.body.userAvatar = req.user.avatar
 
         appointment.feedbacks.push(req.body)
         appointment.save(function(err){
@@ -31,11 +35,20 @@ function deleteFeedback(req,res){
 
     })
 }
-function edit(req,res){
-    res.render('appointments/edit', {feedback: Feedback.getOne(req.params.id)})
+function edit(req, res){
+    res.render('appointments/edit', {feedback: req.params.id})
 }
 
-function update(req,res){
-    Feedback.update(req.params.id, req.body)
-    res.redirect('/appointments')
+function update (req,res,next){
+    Feedback.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then((feedback) => {
+        res.redirect(`/feedbacks/${feedback._id}`)
+    })
+    .catch(next)
+
+    // Appointment.findByIdAndUpdate(req.params.id, req.body, function(err, feedback){
+    //     Appointment.save()
+    //     res.redirect(`/feedbacks/${feedback._id}`)
+    // })
+
 }
