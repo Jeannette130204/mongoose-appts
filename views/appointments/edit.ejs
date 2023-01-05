@@ -1,5 +1,31 @@
 <h1>Edit Todo Form</h1>
-    <form action="/feedbacks/<%=feedback._id%>?_method=PUT" method="PUT"> 
-        <input type="content" name="feedback" value="<%=feedback.feedback%>">
-        <button type="submit">Save Edit</button>
-    </form>
+<form id="edit-form" action="/appointments/<%=appointment._id%>?_method=PUT" method="POST">
+    <!-- action="/appointments" -->
+    <label>Location: </label>
+    <select name="location">
+        <option value="Los Angeles">Los Angeles</option>
+        <option value="Palmdale">Palmdale</option>
+        <option value="Lancaster">Lancaster</option>
+        <option value="San Fernando">San Fernando</option>
+    </select><br><br>
+    <!--  -->
+    <label>Doctor: </label>
+    <select name="doctor">
+        <option value="Stephen Wright">Stephen Wright</option>
+        <option value="Daisy Sing">Daisy Sing</option>
+        <option value="Charles Patterson">Charles Patterson</option>
+        <option value="Kevin Alvarez">Kevin Alvarez</option>
+    </select><br><br>
+    <!--  -->
+    <label>Date:</label>
+    <input type="date" name="date"><br><br>
+    <label>Time: </label>
+    <select name="time">
+        <option value="11:30am">11:30am</option>
+        <option value="12:30pm">12:30pm</option>
+        <option value="1:30pm">1:30pm</option>
+        <option value="2:30pm">2:30pm</option>
+    </select><br><br>
+<input type="submit" value="Save Changes">
+</form>
+<%- include('../partials/footer') %>

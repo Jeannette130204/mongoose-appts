@@ -1,48 +1,54 @@
 <!<%- include('../partials/header') %>
 
-<body>
-    <h1 id="title">Appointment System</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Location</th>
-                <th>Doctor</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-        </thead>
-        <% if (user) { %>
+    <body>
+        <h1 id="title">Appointment System</h1>
+        <table>
+            <% if (user) { %>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
 
-            <tbody>
-                <% appointments.forEach(function(a) { %>
-                    <tr>
-                        <td>
-                            <%= a.location %>
-                        </td>
-                        <td>
-                            <%= a.doctor %>
-                        </td>
-                        <td>
-                            <%= a.date %>
-                        </td>
-                        <td>
-                            <%= a.time %>
-                        </td>
-                        <td>
-                            <a href="/appointments/<%= a._id %>">Appointment Details</a>
-                        </td>
-                        <td>
-                        <form action="/appointments/<%= a._id %>?_method=DELETE" method="POST">
-                            <button type="submit">X</button>
-                        </form> 
-                    </td>
-                    </tr>
-                    <% }); %>
-            </tbody><br>
-            <% } %>
 
-    </table>
-</body>
+                <tbody>
+                    <% appointments.forEach(function(a) { %>
+                        <tr>
+                            <td>
+                                <%= a.location %>
+                            </td>
+                            <td>
+                                <%= a.doctor %>
+                            </td>
+                            <td>
+                                <%= a.date.toLocaleDateString() %>
+                            </td>
+                            <td>
+                                <%= a.time %>
+                            </td>
+                            <td>
+                                <a href="/appointments/<%= a._id %>">Appointment Details</a>
+                            </td>
+                            <td>
+                                <a href="/appointments/<%= a._id %>/edit">Edit Appointment</a>
+                            </td>
+                            <td>
+                                <form action="/appointments/<%= a._id %>?_method=DELETE" method="POST">
+                                    <button type="submit">X</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody><br>
+        </table>
+    </body>
+    <a href="/appointments/new">new</a>
+    <% } else { %>
+        <h5>Please Login</h5>
+        <% } %>
+    <%- include('../partials/footer') %>
 
-</html>
-<a href="/appointments/new">new</a>
+    

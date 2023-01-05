@@ -4,7 +4,9 @@ module.exports = {
     show,
     new: newAppointment,
     create,
-    delete: deleteAppointment
+    delete: deleteAppointment,
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -31,14 +33,37 @@ function create(req, res) {
 function deleteAppointment(req, res, next) {
     Appointment.findById(req.params.id, function (err, appointment) {
         appointment.remove()
-        appointment.save().then(function() {
+        appointment.save().then(function () {
             res.redirect('/appointments')
-        }).catch(function(err) {
+        }).catch(function (err) {
             return next(err)
         })
-
-
-
     })
+}
+function edit(req, res) {
+    // res.render('appointments/edit', { feedback: req.params.id })
+    Appointment.findById(req.params.id, (err, foundAppointment) => {
+        console.log(foundAppointment)
+        res.render('appointments/edit', {
+            appointment: foundAppointment
+        })
+      })
+}
+function update(req, res) {
+    // Appointment.update(req.params.id, req.body)
+    // res.redirect('/appointments')
+    Appointment.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+        },
+        (err, updatedAppointment) => {
+            console.log(err)
+            console.log(updatedAppointment)
+            res.redirect(`/appointments/${req.params.id}`);
+        }
+    )
+
 }
 

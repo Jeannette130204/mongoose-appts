@@ -11,7 +11,12 @@ router.get('/new', appointmentsCtrl.new)
 
 router.get('/:id',appointmentsCtrl.show)
 
+router.get('/:id/edit', appointmentsCtrl.edit)
+
 router.delete('/:id', appointmentsCtrl.delete)
+
+router.put('/:id', appointmentsCtrl.update)
+
 
 // router.delete('/:id', appointmentsCtrl.delete)
 
