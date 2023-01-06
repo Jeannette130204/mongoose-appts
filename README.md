@@ -4,6 +4,12 @@
 Image of Appointment System
 
 Access: https://mongoose-appts-0103.herokuapp.com
+## Technologies used:
+- JavaScript
+- HTML
+- CSS
+- Express
+- MongoDB
 
 ## User Stories:
 - As a user, I want to see an appointment main page that will have likes my appointments and allow log in.
