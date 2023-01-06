@@ -2,6 +2,7 @@
 -Appointment System
 
 Image of Appointment System
+![](./ProjectImage.png)
 
 Access: https://mongoose-appts-0103.herokuapp.com
 ## Technologies used:
