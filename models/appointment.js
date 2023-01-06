@@ -4,23 +4,23 @@ const Schema = mongoose.Schema
 
 const feedbackSchema = new Schema({
     content: String,
-    user: {type:Schema.Types.ObjectId, ref: 'User'},
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
     userName: String,
     userAvatar: String
 }, {
-    timestamps:true
+    timestamps: true
 })
 
 const appointmentSchema = new Schema({
-        location: String,
-        doctor: String,
-        date:{
-            type: Date,
-            required:true
-        },
-        time: String,
-        feedbacks: [feedbackSchema]
-    },{
+    location: String,
+    doctor: String,
+    date: {
+        type: Date,
+        required: true
+    },
+    time: String,
+    feedbacks: [feedbackSchema]
+}, {
     timestamps: true
 });
 

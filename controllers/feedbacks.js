@@ -16,7 +16,6 @@ function create(req, res){
         appointment.feedbacks.push(req.body)
         appointment.save(function(err){
             res.redirect(`/appointments/${appointment._id}`)
-            console.log("this is my user " + req.user.userName)
         })
     })
 }
