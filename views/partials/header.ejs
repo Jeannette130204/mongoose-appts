@@ -8,12 +8,14 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <nav id="header">
-  <a href="/">Main page</a>
-  <img src="/images/camera.svg">
+  <a href="/" class="headerLinks">MAIN PAGE</a>
+  <a href="/doctors" class="headerLinks">DOCTORS</a>
   <% if (user) { %>
-    <a href="/logout">LOG OUT</a>
+    <a href="/appointments" class="headerLinks">APPOINTMENTS</a>
+
+    <a href="/logout" class="headerLinks">LOG OUT</a>
     <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+      <a href="/auth/google" class="headerLinks">LOG IN&nbsp;</a>
       <% } %>
 </nav>
 <main>

@@ -1,6 +1,5 @@
 const { default: mongoose } = require('mongoose')
 const Appointment = require('../models/appointment')
-const Feedback = require('../models/appointment')
 const { Schema } = mongoose
 const ObjectID = mongoose.Types.ObjectId
 module.exports = {
@@ -13,12 +12,13 @@ module.exports = {
 function create(req, res){
     Appointment.findById(req.params.id, function(err, appointment){
         req.body.user = req.user._id,
-        req.body.userName = req.user.userName,
+        req.body.userName = req.user.name,
         req.body.userAvatar = req.user.avatar
 
         appointment.feedbacks.push(req.body)
         appointment.save(function(err){
             res.redirect(`/appointments/${appointment._id}`)
+            console.log("this is my user " + req.user.userName)
         })
     })
 }

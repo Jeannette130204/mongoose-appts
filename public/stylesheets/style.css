@@ -1,16 +1,22 @@
 body {
-  padding: 50px;
+  margin: 0;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#showBody{
+  margin-left: 100px;
+  margin-top:100px;
+  font-size: 15px;
 }
 
 a {
-  color: #f4f1f5;
+  color: #570c4c;
   font-weight: bold;
 }
 #bodyI{
   text-align: center;
   font-size: 25px;
-  background-image: url('https://img.freepik.com/premium-photo/stethoscope-medical-equipment-with-pink-hearts-pastel-background-health-care-with-love-valentine-s-day_98438-1145.jpg?w=2000');
+  background-image: url('https://www.hiresafe.com/wp-content/uploads/2016/02/medical-background-check-1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,8 +24,8 @@ a {
   width: 100%;
 }
 #headerI{
-  margin-top: 300px;
-
+  margin: 0;
+  padding-top: 200px;
 }
 th{
   padding:0 50px 0 50px;
@@ -36,10 +42,15 @@ td{
   border: 1px solid black;
   text-align: right;
   padding:20px;
-  background-color: #e47cbe;
+  background-color: #6fbcfb;
+  margin: none;
 }
 #title {
   text-align: center;
   color:rgb(152, 65, 156)
 }
 
+.headerLinks{
+  color:white;
+  font-size: 17px;
+}
