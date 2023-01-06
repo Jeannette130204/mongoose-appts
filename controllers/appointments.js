@@ -40,7 +40,6 @@ function deleteAppointment(req, res, next) {
     })
 }
 function edit(req, res) {
-    // res.render('appointments/edit', { feedback: req.params.id })
     Appointment.findById(req.params.id, (err, foundAppointment) => {
         console.log(foundAppointment)
         res.render('appointments/edit', {
@@ -49,8 +48,6 @@ function edit(req, res) {
       })
 }
 function update(req, res) {
-    // Appointment.update(req.params.id, req.body)
-    // res.redirect('/appointments')
     Appointment.findByIdAndUpdate(
         req.params.id,
         req.body,

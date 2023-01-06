@@ -5,8 +5,6 @@ const ObjectID = mongoose.Types.ObjectId
 module.exports = {
     create,
     delete: deleteFeedback,
-    // edit,
-    // update
 }
 
 function create(req, res){
@@ -35,20 +33,4 @@ function deleteFeedback(req,res){
 
     })
 }
-// function edit(req, res){
-//     res.render('appointments/edit', {feedback: req.params.id})
-// }
 
-// function update (req,res,next){
-//     Feedback.findByIdAndUpdate(req.params.id, req.body, {new: true})
-//     .then((feedback) => {
-//         res.redirect(`/feedbacks/${feedback._id}`)
-//     })
-//     .catch(next)
-
-    // Appointment.findByIdAndUpdate(req.params.id, req.body, function(err, feedback){
-    //     Appointment.save()
-    //     res.redirect(`/feedbacks/${feedback._id}`)
-    // })
-
-// }

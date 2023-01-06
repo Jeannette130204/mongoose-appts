@@ -4,14 +4,14 @@
         <h1 id="title">Appointment System</h1>
         <table>
             <% if (user) { %>
-            <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Doctor</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
 
 
                 <tbody>
@@ -32,7 +32,7 @@
                             <td class="td">
                                 <a href="/appointments/<%= a._id %>">Appointment Details</a>
                             </td>
-                            <td class="td"> 
+                            <td class="td">
                                 <a href="/appointments/<%= a._id %>/edit">Edit Appointment</a>
                             </td>
                             <td>
@@ -49,6 +49,4 @@
     <% } else { %>
         <h3 id="requireLogin">Please Login</h3>
         <% } %>
-    <%- include('../partials/footer') %>
-
-    
+            <%- include('../partials/footer') %>
