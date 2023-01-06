@@ -14,7 +14,10 @@ const feedbackSchema = new Schema({
 const appointmentSchema = new Schema({
         location: String,
         doctor: String,
-        date: Date,
+        date:{
+            type: Date,
+            required:true
+        },
         time: String,
         feedbacks: [feedbackSchema]
     },{
