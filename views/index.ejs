@@ -7,8 +7,12 @@
   <div id="bodyI">
     <h1 id="headerI"><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <a href="/auth/google">Login</a>
     <a href="/appointments">Appointments</a>
     <a href="/doctors">Doctors</a>
+    <% if (user) { %>
+      <a href="/logout">Log out</a>
+    <% } else { %>    
+      <a href="/auth/google">Log in</a>
+      <% } %>
   </body>
 </html>

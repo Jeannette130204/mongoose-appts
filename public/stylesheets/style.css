@@ -8,9 +8,32 @@ body {
   margin-top:100px;
   font-size: 15px;
 }
-
+.docPic{
+  width:800px;
+  height: 400px;
+  display: flex;
+  margin: auto;
+}
+#allDocs{
+  display:flex;
+  justify-content: center;
+  margin: auto;
+  width:800px;
+  margin-top: 75px;
+}
+.docNames{
+  text-align: center;
+}
+.docSpec{
+  text-align: center;
+}
+#doctors{
+  margin-left:50px;
+  font-size: 20px;
+  text-align:center;
+}
 a {
-  color: #570c4c;
+  color: #1841e8;
   font-weight: bold;
 }
 #bodyI{
@@ -42,12 +65,12 @@ td{
   border: 1px solid black;
   text-align: right;
   padding:20px;
-  background-color: #6fbcfb;
+  background-color: #8cdff8;
   margin: none;
 }
 #title {
   text-align: center;
-  color:rgb(152, 65, 156)
+  color:#1841e8
 }
 
 .headerLinks{
