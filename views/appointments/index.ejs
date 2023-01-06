@@ -1,6 +1,6 @@
 <!<%- include('../partials/header') %>
 
-    <body>
+    <body id="apptBody">
         <h1 id="title">Appointment System</h1>
         <table>
             <% if (user) { %>
@@ -17,22 +17,22 @@
                 <tbody>
                     <% appointments.forEach(function(a) { %>
                         <tr>
-                            <td>
+                            <td class="td">
                                 <%= a.location %>
                             </td>
-                            <td>
+                            <td class="td">
                                 <%= a.doctor %>
                             </td>
-                            <td>
+                            <td class="td">
                                 <%= a.date.toLocaleDateString() %>
                             </td>
-                            <td>
+                            <td class="td">
                                 <%= a.time %>
                             </td>
-                            <td>
+                            <td class="td">
                                 <a href="/appointments/<%= a._id %>">Appointment Details</a>
                             </td>
-                            <td>
+                            <td class="td"> 
                                 <a href="/appointments/<%= a._id %>/edit">Edit Appointment</a>
                             </td>
                             <td>
@@ -45,9 +45,9 @@
                 </tbody><br>
         </table>
     </body>
-    <a href="/appointments/new">new</a>
+    <a href="/appointments/new" id="newAppt">Create New Appointment</a>
     <% } else { %>
-        <h5>Please Login</h5>
+        <h3 id="requireLogin">Please Login</h3>
         <% } %>
     <%- include('../partials/footer') %>
 

@@ -1,29 +1,29 @@
 <%- include('../partials/header') %>
   <div id="showBody">
     <section id="show-page">
-      <div>Location: </div>
+      <h1 class="titles">Appointment Details</h1>
+      <div class="detailsTag">Location: </div>
       <div>
         <%= appointment.location %>
       </div><br>
-      <div>Doctor: </div>
+      <div class="detailsTag">Doctor: </div>
       <div>
         <doc>
           <%= appointment.doctor %>
         </doc>
-        <doc><a href="/doctors">All doctors</a></doc>
       </div><br>
-      <div>Date: </div>
+      <div class="detailsTag">Date: </div>
       <div>
         <%= appointment.date.toLocaleDateString() %>
       </div><br>
-      <div>Time: </div>
+      <div class="detailsTag">Time: </div>
       <div>
         <%= appointment.time %>
       </div>
     </section>
 
     <br><br>
-    <h2>Appointment Feedback</h2>
+    <h3>Appointment Feedback</h3>
     <form id="feedback-form" method="POST" action="/appointments/<%= appointment._id%>/feedbacks">
       <label>Feedback:</label><br>
       <textarea name="content"></textarea><br>
@@ -61,7 +61,7 @@
         </tbody>
       </table>
       <% } else { %>
-        <h5>No Feedback</h5>
+        <h4>No Feedback</h4>
         <% } %>
   </div>
   <%- include('../partials/footer') %>

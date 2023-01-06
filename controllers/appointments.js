@@ -32,8 +32,7 @@ function create(req, res) {
 
 function deleteAppointment(req, res, next) {
     Appointment.findById(req.params.id, function (err, appointment) {
-        appointment.remove()
-        appointment.save().then(function () {
+        appointment.remove().then(function () {
             res.redirect('/appointments')
         }).catch(function (err) {
             return next(err)
